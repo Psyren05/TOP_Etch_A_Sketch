@@ -7,19 +7,23 @@
     <title>Etch-A-Sketch</title>
 </head>
 <body>
-    <!--<h1>Etch-A-Sketch</h1>-->
-    <div id="sketchpad-body">
-        <div id="sketchpad-btn-container">
-            <button id="black-btn">BLACK</button>
-            <button id="rainbow-btn">RAINBOW</button>
-            <button id="pick-btn">PICK A COLOR</button>
-            <button id="eraser-btn">ERASER</button>
-            <button id="clear-btn">CLEAR</button>
-            <input type="range" id="grid-slider" min="1" max="64" value="16">
-            <span id="slider-value">16 x 16</span>
+    <div id="main-container">
+        <div id="text-container">
+            <p>Etch-A-Sketch</p>
         </div>
+        <div id="sketchpad-body">
+            <div id="sketchpad-btn-container">
+                <button id="black-btn">BLACK</button>
+                <button id="rainbow-btn">RAINBOW</button>
+                <button id="pick-btn">PICK A COLOR</button>
+                <button id="eraser-btn">ERASER</button>
+                <button id="clear-btn">CLEAR</button>
+                <input type="range" id="grid-slider" min="1" max="64" value="16">
+                <span id="slider-value">16 x 16</span>
+            </div>
         <div id="sketchpad"></div>
-</div>
+        </div>
+    </div>
 <script src="main.js"></script>
 </body>
 </html>

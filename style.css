@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #EDEDED;
 }
 
 body {
@@ -9,14 +10,28 @@ body {
     height: 100vh;
 }
 
-/* h1 {
+p {
     text-align: center;
-    color: #AA8624;
-    background-color: #C20A15;
-} */
+    color: #333;
+    font-size: 2.5em;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+#text-container {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+}
 
 #sketchpad-body {
-    background-color: #EDEDED;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -31,8 +46,8 @@ body {
     align-items: center;
     flex-direction: column;
     gap: 2em;
-    border: 1px solid black;
-    border-radius: 10px;
+    border: 2px solid #00000088;
+    border-radius: 16px;
     height: 30em;
     width: 14em;
 }
@@ -40,8 +55,9 @@ body {
 button {
     padding: 10px 12px 10px 12px;
     font-size: 1em;
-    border-radius: 10px;
-    color: #000;
+    border-radius: 12px;
+    color: #000000ce;
+    border-color: #00000088;
     background-color: #EDEDED;
 }
 
