@@ -16,7 +16,7 @@ body {
 } */
 
 #sketchpad-body {
-    background-color: #C20A15;
+    background-color: #ad0914;
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -47,17 +47,12 @@ button {
 
 #sketchpad {
    border: solid 1px black;
-   width: 70%;
-   height: 75%;
-   background-color:#BBBBC7;
+   min-width: 30em;
+   min-height: 30em;
+   background-color:#d3d3e1;
    display: grid;
-   grid-template-columns: repeat(16, 1fr); 
-   grid-template-rows: repeat(16, 1fr); 
 }
 
-.square {
-    width: 100%;
-    height: 100%;
-    background-color: #BBBBC7;
-    border: 1px solid black;
+.grid-cell {
+    border: solid 1px black;
 }
