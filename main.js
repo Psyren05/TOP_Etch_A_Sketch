@@ -4,6 +4,7 @@
 // change grid size
 
 const sketchpad = document.getElementById('sketchpad');
+const clearBtn = document.getElementById('clear-btn');
 
 function createGrid(size) {
     sketchpad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -15,13 +16,19 @@ function createGrid(size) {
         sketchpad.appendChild(gridCell);
 
         gridCell.addEventListener('mouseover', () => {
-            gridCell.style.backgroundColor = 'black';
+            gridCell.style.backgroundColor = '#333';
         })
         
     }
 }
 
-createGrid(8);
+function clearGrid() {
+    clearBtn.addEventListener('click', () => {
+        sketchpad.innerText = '';
+    })
+}
+
+createGrid(4);
 
 
 
