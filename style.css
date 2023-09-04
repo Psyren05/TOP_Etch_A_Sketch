@@ -59,6 +59,12 @@ button {
     color: #000000ce;
     border-color: #00000088;
     background-color: #EDEDED;
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+#grid-slider {
+    cursor: pointer;
 }
 
 #sketchpad {
@@ -71,16 +77,10 @@ button {
 
 .grid-cell {
     border: transparent;
+    background-color:#fff;
 }
 
-.blackMode {
-    background-color: #333;
+#black-btn:hover, #rainbow-btn:hover, #pick-btn:hover, #eraser-btn:hover, #clear-btn:hover {
+    transform: scale(1.05);
 }
 
-/* settings for different modes */
-
-.blackModeClicked, .rainbowModeClicked, .pickAColorModeClicked, .eraserClicked, .clearClicked {
-    background-color: #333;
-    color: #EDEDED;
-    transition: 0.2s;
-}

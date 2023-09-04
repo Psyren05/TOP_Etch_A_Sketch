@@ -6,20 +6,23 @@ const eraserBtn = document.getElementById('eraser-btn');
 const clearBtn = document.getElementById('clear-btn');
 const gridSlider = document.getElementById('grid-Slider');
 
+let currentMode;
+
 const blackModeClicked = blackBtn.addEventListener('click', () => {
-    blackBtn.classList.toggle('blackModeClicked')
+    currentMode = 'blackMode';
 });
 const rainbowModeClicked = rainbowBtn.addEventListener('click', () => {
-    rainbowBtn.classList.toggle('rainbowModeClicked')
+    currentMode = 'rainbowMode';
 });
 const pickAColorModeClicked = pickAColorBtn.addEventListener('click', () => {
-    pickAColorBtn.classList.toggle('pickAColorModeClicked')
+    currentMode = 'pickAColorMode';
 });
 const eraserClicked = eraserBtn.addEventListener('click', () => {
-    eraserBtn.classList.toggle('eraserClicked')
+    currentMode = 'eraserMode';
 });
 const clearClicked = clearBtn.addEventListener('click', () => {
-    clearBtn.classList.toggle('clearClicked')
+    currentMode = 'clearMode';
+    clearSketchpad();
 });
 
 
@@ -38,15 +41,22 @@ function createGrid(size) {
 
 function changeColor(event) {
     
-    event.target.classList.add('blackMode');
+    if (currentMode === 'blackMode') {
+        event.target.style.backgroundColor = '#333';
+    } else if (currentMode === 'rainbowMode') {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        event.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    } else if (currentMode === 'eraserMode') {
+        event.target.style.backgroundColor = '#FFF';
+    }
 }
 
-createGrid(12);
+function clearSketchpad() {
+    sketchpad.innerText = '';
+    resetSketchpad();
+    createGrid(size);
+}
 
-// create a function that toggles between colors
-
-// You're going to need an input to pick and keep track of the current color. 
-// And then use that color when you do your 
-// gridCell.style.backgroundColor = .... That answers your context.
-// To answer your question though, you can use the classList you added to 
-// each grid cell to target/get access to them
+createGrid(8);
