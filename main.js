@@ -1,8 +1,3 @@
-// make grid
-// mouse over event
-// change color
-// change grid size
-
 const sketchpad = document.getElementById('sketchpad');
 const blackBtn = document.getElementById('black-btn');
 const rainbowBtn = document.getElementById('rainbow-btn');
@@ -10,6 +5,22 @@ const pickAColorBtn = document.getElementById('pick-btn');
 const eraserBtn = document.getElementById('eraser-btn');
 const clearBtn = document.getElementById('clear-btn');
 const gridSlider = document.getElementById('grid-Slider');
+
+const blackModeClicked = blackBtn.addEventListener('click', () => {
+    blackBtn.classList.toggle('blackModeClicked')
+});
+const rainbowModeClicked = rainbowBtn.addEventListener('click', () => {
+    rainbowBtn.classList.toggle('rainbowModeClicked')
+});
+const pickAColorModeClicked = pickAColorBtn.addEventListener('click', () => {
+    pickAColorBtn.classList.toggle('pickAColorModeClicked')
+});
+const eraserClicked = eraserBtn.addEventListener('click', () => {
+    eraserBtn.classList.toggle('eraserClicked')
+});
+const clearClicked = clearBtn.addEventListener('click', () => {
+    clearBtn.classList.toggle('clearClicked')
+});
 
 
 function createGrid(size) {
@@ -21,9 +32,16 @@ function createGrid(size) {
         gridCell.classList.add('grid-cell');
         sketchpad.appendChild(gridCell);
 
-        sketchpad.addEventListener('mouseover', changeColor);
+        gridCell.addEventListener('mouseover', changeColor);
     }  
 }
+
+function changeColor(event) {
+    
+    event.target.classList.add('blackMode');
+}
+
+createGrid(12);
 
 // create a function that toggles between colors
 
@@ -32,16 +50,3 @@ function createGrid(size) {
 // gridCell.style.backgroundColor = .... That answers your context.
 // To answer your question though, you can use the classList you added to 
 // each grid cell to target/get access to them
-
-function changeColor() {
-    // if blackbtn is clicked, change pen color to black
-    const blackBtnClicked = blackBtn.addEventListener('click', () => {
-        gridCell.addEventListener('mouseover', () => {
-            gridCell.style.backgroundColor = '#333';
-        })
-    })
-}
-
-
-createGrid(12);
-

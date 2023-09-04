@@ -72,3 +72,15 @@ button {
 .grid-cell {
     border: transparent;
 }
+
+.blackMode {
+    background-color: #333;
+}
+
+/* settings for different modes */
+
+.blackModeClicked, .rainbowModeClicked, .pickAColorModeClicked, .eraserClicked, .clearClicked {
+    background-color: #333;
+    color: #EDEDED;
+    transition: 0.2s;
+}
