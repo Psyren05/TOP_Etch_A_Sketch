@@ -3,7 +3,7 @@ const blackBtn = document.getElementById('black-btn');
 const rainbowBtn = document.getElementById('rainbow-btn');
 const pickAColorBtn = document.getElementById('pick-btn');
 const eraserBtn = document.getElementById('eraser-btn');
-const clearBtn = document.getElementById('clear-btn');
+const resetBtn = document.getElementById('reset-btn');
 const gridSlider = document.getElementById('grid-Slider');
 
 let currentMode;
@@ -20,9 +20,9 @@ const pickAColorModeClicked = pickAColorBtn.addEventListener('click', () => {
 const eraserClicked = eraserBtn.addEventListener('click', () => {
     currentMode = 'eraserMode';
 });
-const clearClicked = clearBtn.addEventListener('click', () => {
-    currentMode = 'clearMode';
-    clearSketchpad();
+const resetClicked = resetBtn.addEventListener('click', () => {
+    currentMode = 'resetMode';
+    prompt('How many squares per side? (Max 100)')
 });
 
 
@@ -48,15 +48,13 @@ function changeColor(event) {
         let g = Math.floor(Math.random() * 256);
         let b = Math.floor(Math.random() * 256);
         event.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+    } else if (currentMode === 'pickAColorMode') {
+        event.target.style.backgroundColor = pickAColorBtn.value;
     } else if (currentMode === 'eraserMode') {
         event.target.style.backgroundColor = '#FFF';
+    } else if (currentMode ==='resetMode') {
+        
     }
-}
-
-function clearSketchpad() {
-    sketchpad.innerText = '';
-    resetSketchpad();
-    createGrid(size);
 }
 
 createGrid(8);
