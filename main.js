@@ -4,9 +4,9 @@ const rainbowBtn = document.getElementById('rainbow-btn');
 const pickAColorBtn = document.getElementById('pick-btn');
 const eraserBtn = document.getElementById('eraser-btn');
 const resetBtn = document.getElementById('reset-btn');
-const gridSlider = document.getElementById('grid-Slider');
 
 let currentMode;
+const DEFAULT_GRID_SIZE = 8;
 
 const blackModeClicked = blackBtn.addEventListener('click', () => {
     currentMode = 'blackMode';
@@ -22,15 +22,16 @@ const eraserClicked = eraserBtn.addEventListener('click', () => {
 });
 const resetClicked = resetBtn.addEventListener('click', () => {
     currentMode = 'resetMode';
-    prompt('How many squares per side? (Max 100)')
+    const gridSize = Number(window.prompt('How many squares per side?', '(Max 100)'));
+        createGrid(gridSize);
 });
 
 
-function createGrid(size) {
-    sketchpad.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
-    sketchpad.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+function createGrid(gridSize) {
+    sketchpad.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+    sketchpad.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
 
-    for (i = 0; i < size * size; i++ ){
+    for (i = 0; i < gridSize * gridSize; i++ ){
         const gridCell = document.createElement('div');
         gridCell.classList.add('grid-cell');
         sketchpad.appendChild(gridCell);
@@ -52,9 +53,15 @@ function changeColor(event) {
         event.target.style.backgroundColor = pickAColorBtn.value;
     } else if (currentMode === 'eraserMode') {
         event.target.style.backgroundColor = '#FFF';
-    } else if (currentMode ==='resetMode') {
-        
     }
 }
 
-createGrid(8);
+function loadGrid() {
+    createGrid(DEFAULT_GRID_SIZE);
+}
+
+window.onload = () => {
+    loadGrid();
+}
+
+// click reset, prompt, reset grid with prompt input
