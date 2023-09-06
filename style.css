@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     background-color: #EDEDED;
+    font-family: 'Chakra Petch', sans-serif;
 }
 
 body {
@@ -13,27 +15,30 @@ body {
 p {
     text-align: center;
     color: #333;
-    font-size: 2.5em;
+    font-size: 2.8em;
 }
 
 #main-container {
     display: flex;
-    flex-direction: column;
-    justify-items: center;
+    flex-direction: row-reverse;
+    justify-content: space-evenly ;
     align-items: center;
+    width: 60%;
+    margin: auto;
 }
 
 #text-container {
     display: flex;
-    justify-items: center;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     position: absolute;
-    top: 20px;
+    top: 35px;
 }
 
 #sketchpad-body {
     height: 100vh;
-    width: 70vw;
+    width: 20vw;
     display: flex;
     justify-content:space-evenly;
     align-items: center;
@@ -46,10 +51,19 @@ p {
     align-items: center;
     flex-direction: column;
     gap: 2em;
-    border: 2px solid #00000088;
+    border: 2px solid #00000088;;
     border-radius: 16px;
     height: 26em;
     width: 12em;
+}
+
+#title-and-sketchpad-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40vw;
+    height: 100vh;
 }
 
 button {
@@ -60,10 +74,6 @@ button {
     border-color: #00000088;
     background-color: #EDEDED;
     transition: transform 0.1s ease-in-out;
-    cursor: pointer;
-}
-
-#grid-slider {
     cursor: pointer;
 }
 

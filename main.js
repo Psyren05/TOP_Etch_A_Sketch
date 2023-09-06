@@ -6,7 +6,7 @@ const eraserBtn = document.getElementById('eraser-btn');
 const resetBtn = document.getElementById('reset-btn');
 
 let currentMode;
-const DEFAULT_GRID_SIZE = 8;
+const DEFAULT_GRID_SIZE = 20;
 
 const blackModeClicked = blackBtn.addEventListener('click', () => {
     currentMode = 'blackMode';
@@ -23,6 +23,7 @@ const eraserClicked = eraserBtn.addEventListener('click', () => {
 const resetClicked = resetBtn.addEventListener('click', () => {
     currentMode = 'resetMode';
     const gridSize = Number(window.prompt('How many squares per side?', '(Max 100)'));
+        clearGrid();
         createGrid(gridSize);
 });
 
@@ -56,6 +57,10 @@ function changeColor(event) {
     }
 }
 
+function clearGrid() {
+    sketchpad.innerText = '';
+}
+
 function loadGrid() {
     createGrid(DEFAULT_GRID_SIZE);
 }
@@ -64,4 +69,5 @@ window.onload = () => {
     loadGrid();
 }
 
-// click reset, prompt, reset grid with prompt input
+// click reset, prompt, reset grid with prompt input (DONE)
+// now the grid needs to change back to white when reset (DONE)
